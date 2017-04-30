@@ -1,2 +1,7 @@
-%h1 TaskSets#index
-%p Find me in app/views/task_sets/index.html.haml
+%h1 TaskSets
+%ul
+  - @task_sets.each do |task_set|
+    %li= link_to task_set.title, task_set_path(task_set)
+
+%p
+  = link_to 'New task set', new_task_set_path

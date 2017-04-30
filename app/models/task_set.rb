@@ -1,0 +1,2 @@
+class TaskSet < ApplicationRecord
+end

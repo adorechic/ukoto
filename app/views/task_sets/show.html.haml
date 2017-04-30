@@ -1,0 +1,7 @@
+%h1= @task_set.title
+
+%p
+  = link_to 'Back', root_path
+
+%p
+  = link_to 'Delete', task_set_path(@task_set), method: :delete
