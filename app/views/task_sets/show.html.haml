@@ -1,5 +1,16 @@
 %h1= @task_set.title
 
+%ul
+  - @task_set.tasks.each do |task|
+    %li= task.title
+
+%p
+  = form_with model: @task_set.tasks.new, local: true do |f|
+    = f.hidden_field :task_set_id
+    = f.label :title
+    = f.text_field :title
+    = f.submit 'Add new task'
+
 %p
   = link_to 'Back', root_path
 
