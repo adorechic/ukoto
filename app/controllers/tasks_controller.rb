@@ -3,7 +3,14 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.save!
 
-    redirect_to task_set_path(@task.task_set)
+    respond_to do |format|
+      format.html {
+        redirect_to task_set_path(@task.task_set)
+      }
+      format.json {
+        head 204
+      }
+    end
   end
 
   private

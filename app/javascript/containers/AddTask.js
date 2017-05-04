@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTask } from '../actions/task'
+import { postTask } from '../actions/task'
 
 let AddTask = ({ dispatch }) => {
   let input
@@ -12,7 +12,7 @@ let AddTask = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTask(input.value))
+        dispatch(postTask(input.value))
         input.value = ''
       }}>
         <input ref={node => {

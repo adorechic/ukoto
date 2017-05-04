@@ -3,14 +3,7 @@
 
 %h1= @task_set.title
 
-= react_component('TaskRoot', tasks: @task_set.tasks.map {|task| { title: task.title } })
-
-%p
-  = form_with model: @task_set.tasks.new, local: true do |f|
-    = f.hidden_field :task_set_id
-    = f.label :title
-    = f.text_field :title
-    = f.submit 'Add new task'
+= react_component('TaskRoot', tasks: @task_set.tasks.map {|task| { title: task.title } }, task_set_id: @task_set.id, authenticity_token: form_authenticity_token)
 
 %p
   = link_to 'Back', root_path
