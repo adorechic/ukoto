@@ -4,6 +4,13 @@ const tasks = (state = [], action) => {
   switch (action.type) {
   case 'FETCH_TASK':
     return Object.assign([], state, action.tasks)
+  case 'ADD_TASK':
+    return [
+      {
+        title: action.title
+      },
+      ...state
+    ]
   default:
     return state
   }
