@@ -1,8 +1,9 @@
+- content_for :javascript do
+  = javascript_pack_tag 'tasks'
+
 %h1= @task_set.title
 
-%ul
-  - @task_set.tasks.each do |task|
-    %li= task.title
+= react_component('TaskRoot', tasks: @task_set.tasks.map {|task| { title: task.title } })
 
 %p
   = form_with model: @task_set.tasks.new, local: true do |f|
